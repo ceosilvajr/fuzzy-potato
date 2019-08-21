@@ -26,6 +26,7 @@ dependencies {
 
     implementation project(path: ':network')
     implementation project(path: ':models')
+    implementation project(path: ':room')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.2'

@@ -1,8 +1,8 @@
 package com.ceosilvajr.starwars
 
 import android.app.Application
-import com.ceosilvajr.starwars.koin.MainApplicationModule
 import com.ceosilvajr.network.NetworkModule
+import com.ceosilvajr.room.RoomModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,7 +15,12 @@ class MainApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MainApplication)
-            modules(arrayListOf(MainApplicationModule.load(), NetworkModule.load()))
+            modules(arrayListOf(
+                    MainApplicationModule.load(),
+                    NetworkModule.load(),
+                    RoomModule.load(this@MainApplication
+                    ))
+            )
         }
     }
 }
