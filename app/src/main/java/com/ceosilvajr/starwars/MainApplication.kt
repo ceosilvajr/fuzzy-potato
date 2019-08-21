@@ -2,7 +2,7 @@ package com.ceosilvajr.starwars
 
 import android.app.Application
 import com.ceosilvajr.starwars.koin.MainApplicationModule
-import com.ceosilvajr.starwars.koin.NetworkModule
+import com.ceosilvajr.network.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

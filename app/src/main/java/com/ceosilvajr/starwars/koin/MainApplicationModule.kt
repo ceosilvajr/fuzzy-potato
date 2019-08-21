@@ -1,5 +1,6 @@
 package com.ceosilvajr.starwars.koin
 
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.dsl.module
 
 /**
@@ -8,6 +9,6 @@ import org.koin.dsl.module
 object MainApplicationModule {
 
     fun load() = module {
-
+        factory { CompositeDisposable() }
     }
 }

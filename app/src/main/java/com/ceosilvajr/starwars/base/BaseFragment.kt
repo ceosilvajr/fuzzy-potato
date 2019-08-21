@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import io.reactivex.disposables.CompositeDisposable
+import org.koin.android.ext.android.inject
 
 /**
  * @author ceosilvajr@gmail.com
  */
 open class BaseFragment : Fragment() {
+
+    val compositeDisposable: CompositeDisposable by inject()
 
     lateinit var navController: NavController
 
