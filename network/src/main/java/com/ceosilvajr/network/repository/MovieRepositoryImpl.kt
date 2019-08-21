@@ -11,6 +11,9 @@ class MovieRepositoryImpl(private val api: ApiEndpoint) : MovieRepository {
 
     override fun getMovies(): Flowable<List<Movie>> {
         val query = HashMap<String, Any>()
+        query["term"] = "star wars"
+        query["country"] = "au"
+        query["media"] = "movie"
         return api.getMoviesByQuery(query).map {
             it.results?.map { data -> data.toModel() }?.toList()
         }
