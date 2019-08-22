@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import io.reactivex.disposables.CompositeDisposable
+import org.jetbrains.anko.AnkoLogger
 import org.koin.android.ext.android.inject
 
 /**
  * @author ceosilvajr@gmail.com
  */
-open class BaseFragment : Fragment() {
+open class BaseFragment : Fragment(), AnkoLogger {
 
     val compositeDisposable: CompositeDisposable by inject()
 
