@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -6,7 +6,6 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.ceosilvajr.starwars"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -14,43 +13,39 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", STAGING_BASE_URL)
+            minifyEnabled false
+        }
         release {
+            buildConfigField("String", "BASE_URL", RELEASE_BASE_URL)
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':network')
     implementation project(path: ':models')
-    implementation project(path: ':room')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.appcompat:appcompat:1.0.2'
 
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
-    implementation 'org.koin:koin-android:2.0.1'
-    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation "com.squareup.retrofit2:retrofit:2.6.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.1.0"
 
-    implementation "org.jetbrains.anko:anko-commons:0.10.8"
-    implementation "jp.wasabeef:blurry:3.0.0"
-    implementation "io.coil-kt:coil:0.6.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+
+    implementation 'org.koin:koin-android:2.0.1'
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
