@@ -1,5 +1,6 @@
 package com.ceosilvajr.starwars
 
+import com.ceosilvajr.starwars.adapter.MovieListAdapter
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.dsl.module
 
@@ -10,5 +11,6 @@ object MainApplicationModule {
 
     fun load() = module {
         factory { CompositeDisposable() }
+        factory { MovieListAdapter(arrayListOf()) }
     }
 }

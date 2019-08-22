@@ -19,6 +19,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -42,6 +49,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     implementation "org.jetbrains.anko:anko-commons:0.10.8"
+    implementation "jp.wasabeef:blurry:3.0.0"
+    implementation "io.coil-kt:coil:0.6.1"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
