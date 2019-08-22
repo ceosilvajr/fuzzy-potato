@@ -29,6 +29,7 @@ class HomeFragment : BaseFragment(), MovieListAdapter.Listener {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         localMovieViewModel.observeLocalMovie(activity!!) {
+            progressbar.visibility = View.GONE
             movieListAdapter.updateList(it as ArrayList<Movie>)
         }
     }
