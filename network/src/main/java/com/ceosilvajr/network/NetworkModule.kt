@@ -1,9 +1,11 @@
 package com.ceosilvajr.network
 
 import com.ceosilvajr.network.repository.MovieRepositoryImpl
+import com.ceosilvajr.network.viewmodel.OnlineMovieViewModel
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -22,6 +24,8 @@ object NetworkModule {
         single { createApiService(get()) }
 
         factory { MovieRepositoryImpl(get()) }
+        viewModel { OnlineMovieViewModel(get()) }
+
     }
 
     private fun createApiService(retrofit: Retrofit): ApiEndpoint = retrofit.create(ApiEndpoint::class.java)

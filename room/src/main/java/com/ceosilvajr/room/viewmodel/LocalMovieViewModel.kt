@@ -22,4 +22,5 @@ class LocalMovieViewModel(private val repository: LocalMovieRepository) : ViewMo
     }
 
     fun insertMovies(movies: List<Movie>) = repository.insertMovies(movies)
+
 }

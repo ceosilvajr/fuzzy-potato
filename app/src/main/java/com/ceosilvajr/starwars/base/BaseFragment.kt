@@ -29,4 +29,9 @@ open class BaseFragment : Fragment(), AnkoLogger {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        compositeDisposable.clear()
+    }
 }
