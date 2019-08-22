@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import coil.api.load
 import com.ceosilvajr.models.Movie
 import com.ceosilvajr.room.viewmodel.LocalMovieViewModel
 import com.ceosilvajr.starwars.R
@@ -29,25 +28,15 @@ class HomeFragment : BaseFragment(), MovieListAdapter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        localMovieViewModel.observeLocalMovie(activity!!) { updateView(it) }
+        localMovieViewModel.observeLocalMovie(activity!!) {
+            movieListAdapter.updateList(it as ArrayList<Movie>)
+        }
     }
 
     private fun setupView() {
         movieListAdapter.init(context!!, this)
         rv_movies.setHasFixedSize(true)
         rv_movies.adapter = movieListAdapter
-    }
-
-    private fun updateView(it: List<Movie>) {
-        val mainMovie = it.random()
-        iv_blur_banner.load(mainMovie.artwork)
-        iv_banner.load(mainMovie.artwork) {
-            crossfade(true)
-            placeholder(R.drawable.img_movie_placeholder)
-        }
-        tv_name.text = mainMovie.name
-        iv_info.setOnClickListener { onMovieItemClicked(mainMovie) }
-        movieListAdapter.updateList(it as ArrayList<Movie>)
     }
 
     override fun onMovieItemClicked(movie: Movie) {

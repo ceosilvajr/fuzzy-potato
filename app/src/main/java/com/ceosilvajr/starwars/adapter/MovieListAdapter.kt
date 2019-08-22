@@ -46,10 +46,14 @@ class MovieListAdapter(private val items: ArrayList<Movie>) : RecyclerView.Adapt
     inner class AdapterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val image = view.iv_banner!!
         private val price = view.tv_price!!
+        private val genre = view.tv_genre!!
+        private val name = view.tv_name!!
         fun displayView(model: Movie) {
             image.load(model.artwork) {
                 placeholder(R.drawable.img_movie_placeholder)
             }
+            name.text = model.name
+            genre.text = model.genre
             price.text = model.price.toMoney()
         }
     }

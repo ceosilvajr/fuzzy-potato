@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.api.load
 import com.ceosilvajr.models.Movie
 import com.ceosilvajr.starwars.R
 import com.ceosilvajr.starwars.base.BaseFragment
+import com.ceosilvajr.starwars.extensions.toMoney
 import kotlinx.android.synthetic.main.fragment_master_detail.*
 
 /**
@@ -33,9 +35,12 @@ class MasterDetailFragment : BaseFragment() {
         tv_name.text = movie.name
         tv_description.text = movie.description
         tv_genre.text = movie.genre
-        tv_price.text = movie.price.toString()
-        tv_preview_url.text = movie.previewUrl
-        tv_artwork.text = movie.artwork
+        tv_price.text = movie.price.toMoney()
+        iv_blur_banner.load(movie.artwork)
+        iv_banner.load(movie.artwork) {
+            crossfade(true)
+            placeholder(R.drawable.img_movie_placeholder)
+        }
     }
 
     companion object {
