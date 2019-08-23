@@ -50,11 +50,14 @@ the function called `observerLocalMovies()` this will emit the list of data from
     }
 ```  
   
-# Demo  
-![Animated Gif](/art/demo.gif)  
-  
 # Improvements can be done  
 - Implement pull to refresh [issue #12](https://github.com/ceosilvajr/fuzzy-potato/issues/12)
 - Network error handling [issue #4](https://github.com/ceosilvajr/fuzzy-potato/issues/11])
 - Animate fragment transition [issue #10](https://github.com/ceosilvajr/fuzzy-potato/issues/10)
 - Improve gradle dependencies [issue #13](https://github.com/ceosilvajr/fuzzy-potato/issues/13)
+
+# Demo  
+![Animated Gif](/art/demo.gif)  
+![Workin APK](/art/app.apk)  
+
+  
