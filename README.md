@@ -22,7 +22,7 @@ Create a master-detail application that contains at least one dependency. This a
 - room (Handles local caching)  
   
 # How it works?  
-- In ![MainActivity](/app/src/main/java/com/ceosilvajr/starwars/MainActivity.kt) there is a   
+- In [MainActivity](/app/src/main/java/com/ceosilvajr/starwars/MainActivity.kt) there is a   
 function called `initializeMovieData()` calls api request to remote server and saves the data to   
 local database.  
 
@@ -39,7 +39,7 @@ local database.
     }
 ```  
  
-- In ![HomeFragment](/app/src/main/java/com/ceosilvajr/starwars/fragments/HomeFragment.kt) check   
+- In [HomeFragment](/app/src/main/java/com/ceosilvajr/starwars/fragments/HomeFragment.kt) check   
 the function called `observerLocalMovies()` this will emit the list of data from local database.  
 
 ```kotlin 
