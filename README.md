@@ -57,7 +57,7 @@ the function called `observerLocalMovies()` this will emit the list of data from
 - Improve gradle dependencies [issue #13](https://github.com/ceosilvajr/fuzzy-potato/issues/13)
 
 # Demo  
+- [Workin APK](/art/app.apk)
 ![Animated Gif](/art/demo.gif)  
-![Workin APK](/art/app.apk)  
 
   
