@@ -27,6 +27,7 @@ class MovieListAdapter(private val items: ArrayList<Movie>) : RecyclerView.Adapt
     fun updateList(items: ArrayList<Movie>) {
         this.items.clear()
         this.items.addAll(items)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
