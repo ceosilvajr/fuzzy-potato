@@ -30,4 +30,5 @@ class OnlineMovieViewModel(private val repositoryImpl: MovieRepositoryImpl) : Vi
         super.onCleared()
         compositeDisposable.clear()
     }
+
 }
