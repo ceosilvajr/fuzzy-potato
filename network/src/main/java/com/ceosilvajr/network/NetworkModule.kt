@@ -18,14 +18,12 @@ import java.util.concurrent.TimeUnit
 object NetworkModule {
 
     fun load() = module {
-
         single { httpClient() }
         single { createRetrofit(get()) }
         single { createApiService(get()) }
 
         factory { MovieRepositoryImpl(get()) }
         viewModel { OnlineMovieViewModel(get()) }
-
     }
 
     private fun createApiService(retrofit: Retrofit): ApiEndpoint = retrofit.create(ApiEndpoint::class.java)

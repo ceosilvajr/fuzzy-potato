@@ -39,7 +39,7 @@ class MovieListAdapter(private val items: ArrayList<Movie>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
         val model = items[position]
         holder.itemView.setOnClickListener { listener.onMovieItemClicked(model) }
-        holder.displayView(model)
+        holder.bind(model)
     }
 
 
@@ -48,7 +48,7 @@ class MovieListAdapter(private val items: ArrayList<Movie>) : RecyclerView.Adapt
         private val price = view.tv_price!!
         private val genre = view.tv_genre!!
         private val name = view.tv_name!!
-        fun displayView(model: Movie) {
+        fun bind(model: Movie) {
             image.load(model.artwork) {
                 placeholder(R.drawable.img_movie_placeholder)
             }

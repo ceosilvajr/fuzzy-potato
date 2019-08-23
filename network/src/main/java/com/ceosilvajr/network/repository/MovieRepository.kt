@@ -7,7 +7,5 @@ import io.reactivex.Flowable
  * @author ceosilvajr@gmail.com
  */
 interface MovieRepository {
-
     fun getMovies(): Flowable<List<Movie>>
-
 }
